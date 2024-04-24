@@ -15,4 +15,9 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: aqua;
+}
+flexbox {
+    font: bold;
+    background-color: orange;
 }
