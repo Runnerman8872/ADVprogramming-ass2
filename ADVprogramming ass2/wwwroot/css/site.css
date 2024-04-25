@@ -14,10 +14,10 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  background-color: aqua;
+    margin-bottom: 60px;
+    background-color: #BAFFB4;
 }
-flexbox {
+.flex-container {
     font: bold;
-    background-color: orange;
+    background-color: #D4FBD1;
 }
