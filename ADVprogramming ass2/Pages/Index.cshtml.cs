@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ADVprogramming_ass2.Data;
+using ADVprogramming_ass2.Model;
 
 namespace ADVprogramming_ass2.Pages
 {
