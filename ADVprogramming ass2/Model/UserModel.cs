@@ -26,6 +26,9 @@ namespace ADVprogramming_ass2.Model
         [Required]
         public bool Loyalty_Card { get; set; }
 
+        [Required]
+        public bool Staff_Member { get; set; }
+
 
     }
 }
