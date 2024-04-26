@@ -28,6 +28,7 @@ namespace ADVprogramming_ass2.Model
 
         [Required]
         public bool Staff_Member { get; set; }
+        //this is a test to see how the different branches work
 
 
     }
