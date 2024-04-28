@@ -8,3 +8,77 @@
 <div class="text-center">
     <p>Bonjour</p>
 </div>
+<div class="container border p-5">
+    <form method="post">
+        
+        <!--Item name-->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Item Name:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="NewItem.Item_Name" class="form-control" />
+            </div>
+        </div>
+
+        <!--Item Type-->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Item Type:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="NewItem.Item_Type" class="form-control" />
+            </div>
+        </div>
+
+        <!--Supplier-->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Supplier:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="NewItem.Supplier" class="form-control" />
+            </div>
+        </div>
+
+        <!--Quantity-->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Starting quantity:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="NewItem.Item_description" class="form-control" />
+            </div>
+        </div>
+
+        <!--Price-->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Price (£):</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="NewItem.Price_Pound" class="form-control" />
+            </div>
+        </div>
+
+        <!--Description-->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Description:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="NewItem.Item_description" class="form-control" />
+            </div>
+        </div>
+
+        <!--Buton-->
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-block btn-secondary">Add Task</button>
+            </div>
+        </div>
+
+
+
+    </form>
+</div>

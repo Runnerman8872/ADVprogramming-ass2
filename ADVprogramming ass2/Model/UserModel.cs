@@ -1,8 +1,9 @@
-﻿//add-migration AddingItemModel
+﻿//add-migration AddingUserModel
 //update-database
 
 using System.ComponentModel.DataAnnotations;
-using ADVprogramming_ass2.Model;
+
+
 
 namespace ADVprogramming_ass2.Model
 {

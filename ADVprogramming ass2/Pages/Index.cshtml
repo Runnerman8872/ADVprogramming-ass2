@@ -22,6 +22,34 @@
                 <p>world</p>
             </div>
         </div>
+        <table class="table">
+            <thread>
+                <tr>
+                    <th>ID</th>
+                    <th>Item Name</th>
+                    <th>Item Type</th>
+                    <th>Supplier</th>
+                    <th>Quantity</th>
+                    <th>Price (£)</th>
+                </tr>
+            </thread>
+            <tbody>
+                @foreach (var item in Model.Items){
+                    <tr>
+
+                        <td>@item.Item_Id</td>
+                        <td>@item.Item_Name</td>
+                        <td>@item.Item_Type</td>
+                        <td>@item.Supplier</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Price_Pound</td>
+
+                    </tr>
+
+
+                }
+            </tbody>
+        </table>
         </div>
         </div>
     </main>

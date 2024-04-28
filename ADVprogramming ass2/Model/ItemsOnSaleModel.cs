@@ -2,7 +2,8 @@
 //update-database
 
 using System.ComponentModel.DataAnnotations;
-using ADVprogramming_ass2.Model;
+
+
 
 namespace ADVprogramming_ass2.Model
 {
@@ -26,15 +27,11 @@ namespace ADVprogramming_ass2.Model
         [Required]
         public int Quantity { get; set; }
 
-        [Required]
         public int QuantSold { get; set; }
 
         [Required]
         [DataType(DataType.Currency)]
         public float Price_Pound { get; set; }
-
-        [Required]
-        public bool Onsale { get; set; }
 
         [StringLength(750)]
         public string Item_description { get; set; }
