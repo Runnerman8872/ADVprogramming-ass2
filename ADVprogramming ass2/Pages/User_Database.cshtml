@@ -29,7 +29,11 @@
                         <td>@item.Use_Age</td>
                         <td>@item.Loyalty_Card</td>
                         <td>@item.Staff_Member</td>
+                        <td>
+                            <a asp-page="/Edit" asp-route-id="@item.User_Id" class="btn btn-primary">Edit</a>
+                            <a asp-page="/Delete_Item" asp-route-id="@item.User_Id" class="btn btn-danger">Delete</a>
 
+                        </td>
                     </tr>
 
 
