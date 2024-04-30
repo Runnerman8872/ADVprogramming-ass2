@@ -1,0 +1,13 @@
+﻿@page "{id:Guid}"
+@model ADVprogramming_ass2.Pages.Delete_ItemModel
+@{
+}
+<h2>Confirm Deletion</h2>
+<p>Are your sure you want to remove PERMENANTLY remove this item from the database</p>
+<p>This cannot be undone</p>
+
+<form method="post">
+    <input type="hidden" asp-for="Items.Item_Id"/>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="Item_Database" class="btn btn-secondary">Cancel</a>
+</form>
