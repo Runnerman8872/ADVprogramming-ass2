@@ -2,3 +2,15 @@
 @model ADVprogramming_ass2.Pages.Shop_pageModel
 @{
 }
+@foreach (var Item in Model.Items)
+{
+    <div class="card">
+        <div class="card-header">
+            @Item.Item_Name
+        </div>
+        <div class="card-body">
+            <p class="card-text">@Item.Item_description</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+}
