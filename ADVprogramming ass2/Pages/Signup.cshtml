@@ -1,5 +1,5 @@
 ﻿@page
-@model ADVprogramming_ass2.Pages.Item_DB_ScreenModel
+@model ADVprogramming_ass2.Pages.SignupModel
 @{
     ViewData["Title"] = "Database page";
 }
@@ -11,74 +11,57 @@
 <div class="container border p-5">
     <form method="post">
         
-        <!--Item name-->
+        <!--Username-->
         <div class="form-group row">
             <div class="col-4">
-                <label>Item Name:</label>
+                <label>Username:</label>
             </div>
             <div class="col-8">
-                <input asp-for="NewItem.Item_Name" class="form-control" />
+                <input asp-for="NewUser.User_Name" class="form-control" />
             </div>
         </div>
 
-        <!--Item Type-->
+        <!--UserEmail-->
         <div class="form-group row">
             <div class="col-4">
-                <label>Item Type:</label>
+                <label>E-mail address:</label>
             </div>
             <div class="col-8">
-                <input asp-for="NewItem.Item_Type" class="form-control" />
+                <input asp-for="NewUser.User_Email" class="form-control" />
             </div>
         </div>
-
-        <!--Supplier-->
+        <!--User_age-->
         <div class="form-group row">
             <div class="col-4">
-                <label>Supplier:</label>
+                <label>Age:</label>
             </div>
             <div class="col-8">
-                <input asp-for="NewItem.Supplier" class="form-control" />
+                <input asp-for="NewUser.Use_Age" class="form-control" />
             </div>
         </div>
-
-        <!--Quantity-->
+        <!--Loyalty Card-->
         <div class="form-group row">
             <div class="col-4">
-                <label>Starting quantity:</label>
+                <label>Loyalty card?:</label>
             </div>
             <div class="col-8">
-                <input asp-for="NewItem.Item_description" class="form-control" />
+                <input type="checkbox" asp-for="NewUser.Loyalty_Card"/>
             </div>
         </div>
-
-        <!--Price-->
+        <!--Administrator-->
         <div class="form-group row">
             <div class="col-4">
-                <label>Price (£):</label>
+                <label>Employee?:</label>
             </div>
             <div class="col-8">
-                <input asp-for="NewItem.Price_Pound" class="form-control" />
+                <input type="checkbox" asp-for="NewUser.Staff_Member" />
             </div>
         </div>
-
-        <!--Description-->
-        <div class="form-group row">
-            <div class="col-4">
-                <label>Description:</label>
-            </div>
-            <div class="col-8">
-                <input asp-for="NewItem.Item_description" class="form-control" />
-            </div>
-        </div>
-
         <!--Buton-->
         <div class="form-group row">
             <div class="col">
-                <button type="submit" class="btn btn-block btn-secondary">Add Item</button>
+                <button type="submit" class="btn btn-block btn-secondary">Create user</button>
             </div>
         </div>
-
-
-
     </form>
 </div>
