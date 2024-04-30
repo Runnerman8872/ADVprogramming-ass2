@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
             <p class="card-text">@Item.Item_description</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p><a asp-page="/Item_Sale_Page" class="btn btn-primary" asp-route-id ="@Item.Item_Id">Buy Now</a> £@Item.Price_Pound</p>
         </div>
     </div>
 }

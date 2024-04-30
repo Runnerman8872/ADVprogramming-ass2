@@ -1,6 +1,8 @@
 using ADVprogramming_ass2.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace ADVprogramming_ass2.Pages
 {
@@ -18,10 +20,10 @@ namespace ADVprogramming_ass2.Pages
 
             _dbConnection = _db;
         }
-
         public void OnGet()
         {
             Items = _dbConnection.Item.ToList();
         }
+
     }
 }
