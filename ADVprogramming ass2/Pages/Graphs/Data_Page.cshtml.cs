@@ -2,12 +2,15 @@ using ADVprogramming_ass2.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
+using System.Reflection.Metadata;
 
-namespace ADVprogramming_ass2.Pages
+namespace ADVprogramming_ass2.Pages.Graphs
 {
     public class Data_PageModel : PageModel
     {
+
         private readonly AppDBContext _dbConnection;
+
         public string TasksJson { get; set; }
 
         public Data_PageModel(AppDBContext db)
@@ -15,10 +18,11 @@ namespace ADVprogramming_ass2.Pages
             _dbConnection = db;
         }
 
+
         public void OnGet()
         {
             var items = _dbConnection.Item.ToList();
-            TasksJson = JsonSerializer.Serialize(items.Select(T => new { QuantSold = T.QuantSold, T.Item_Name }));
+            TasksJson = JsonSerializer.Serialize(items.Select(t => new { Quantity_Sold = t.QuantSold.ToString(), t.Quantity}));
         }
     }
 }

@@ -1,21 +1,36 @@
 ﻿@page
-@model ADVprogramming_ass2.Pages.Data_PageModel
+@model ADVprogramming_ass2.Pages.Graphs.Data_PageModel
 @{
 }
 <div>
-    <canvas id="ItemGraph"
+    <canvas id="tasksGraph"></canvas>
 </div>
 
 @section Scripts{
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx= document.getElementById('itemGraph').getContext('2d'):
-        var itemData = @Html.Raw(Model.TasksJson);
-        var itemGraph = new Chart(ctx, {
-        type: "line",
+        var ctx = document.getElementById('tasksGraph').getContext('2d'):
+        var tasksData = @Html.Raw(Model.TasksJson);
+        var tasksGraph = new Chart(ctx, {
+        type: 'Bar',
     data: {
-                labels: itemData.map(t => new interface(t.QuantSold))
-    }
-        });
+                labels: tasksData.map(t => new Date(t.Quantity_Sold).toLocaleDateString()),
+                datasets: [{
+                    label: 'Amount Sold',
+                    data: tasksData.map(t => t.Quantity),
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
     </script>
 }

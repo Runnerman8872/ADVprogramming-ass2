@@ -12,15 +12,40 @@ namespace ADVprogramming_ass2.Pages
         private readonly AppDBContext _dbConnection;
 
         public ItemsOnSaleModel Items { get; set; }
+        public int AMTSold;
 
         public Item_Sale_pageModel(AppDBContext context)
         {
             _dbConnection = context;
         }
 
-        public void OnGet(Guid id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
-            Items = _dbConnection.Item.FirstOrDefault(t => t.Item_Id == id);
+            Items = await _dbConnection.Item.FindAsync(id);
+            //hjmyshghsshggh
+            if (Items == null)
+            {
+                return NotFound();//hjmyshghsshggh
+            }
+
+            //hjmyshghsshggh
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            var itemSold = await _dbConnection.Item.FindAsync(Items.Item_Id);
+
+            if (itemSold == null)
+            {
+                return NotFound();
+            }
+
+            itemSold.QuantSold = (itemSold.QuantSold + AMTSold);
+
+            await _dbConnection.SaveChangesAsync();
+
+            return RedirectToPage("Index");
         }
 
     }

@@ -15,6 +15,7 @@
             <th>Item Type</th>
             <th>Supplier</th>
             <th>Quantity</th>
+            <th>Quantity Sold</th>
             <th>Price (£)</th>
         </tr>
     </thread>
@@ -28,6 +29,7 @@
                 <td>@item.Item_Type</td>
                 <td>@item.Supplier</td>
                 <td>@item.Quantity</td>
+                <td>@item.QuantSold</td>
                 <td>@item.Price_Pound</td>
                 <td>
                 <a asp-page="/Edit_Item" asp-route-id="@item.Item_Id" class="btn btn-primary">Edit</a>
