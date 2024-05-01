@@ -1,0 +1,21 @@
+﻿@page
+@model ADVprogramming_ass2.Pages.Data_PageModel
+@{
+}
+<div>
+    <canvas id="ItemGraph"
+</div>
+
+@section Scripts{
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx= document.getElementById('itemGraph').getContext('2d'):
+        var itemData = @Html.Raw(Model.TasksJson);
+        var itemGraph = new Chart(ctx, {
+        type: "line",
+    data: {
+                labels: itemData.map(t => new interface(t.QuantSold))
+    }
+        });
+    </script>
+}

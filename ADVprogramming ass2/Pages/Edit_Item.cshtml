@@ -1,0 +1,41 @@
+﻿@page "{id:Guid}"
+@model ADVprogramming_ass2.Pages.Edit_ItemModel
+
+<h1>Edit Items</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Items.Item_Id" />
+
+    <div class="form-group">
+        <label for="Items_Item_Name">Name</label>
+        <input asp-for="Items.Item_Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Items_Item_Description">Description</label>
+        <input asp-for="Items.Item_description"  class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Items_Supplier">supplier</label>
+        <input asp-for="Items.Supplier" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Items_Type">Item type</label>
+        <input asp-for="Items.Item_Type" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Items_Quantity">Quantity</label>
+        <input asp-for="Items.Quantity" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Items_QuantSold">Amount sold</label>
+        <input asp-for="Items.QuantSold" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Items_Price_Pound">Price</label>
+        <input asp-for="Items.Price_Pound" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

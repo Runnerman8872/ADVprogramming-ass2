@@ -7,6 +7,7 @@ namespace ADVprogramming_ass2.Pages
     public class Item_DB_ScreenModel : PageModel
     {
         private readonly AppDBContext _dbConnection;
+
         public ItemsOnSaleModel NewItem { get; set; }
 
         public Item_DB_ScreenModel(AppDBContext context)
