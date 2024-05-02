@@ -10,7 +10,11 @@ namespace ADVprogramming_ass2.Model
         //represents the user model
         public DbSet<UserModel> User_Name { get; set; }
 
-        public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Order_Item> OrderItems { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+
+    public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {
 
         }

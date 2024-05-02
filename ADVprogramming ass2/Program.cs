@@ -7,6 +7,14 @@ var connectionstring = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddDbContext<AppDBContext>(option => option.UseSqlServer(connectionstring));
 
 builder.Services.AddSingleton<UserModel>();
@@ -30,6 +38,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapRazorPages();
 
