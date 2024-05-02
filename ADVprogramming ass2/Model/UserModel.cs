@@ -17,6 +17,10 @@ namespace ADVprogramming_ass2.Model
         public string User_Name { get; set;}
 
         [Required]
+        [StringLength(75)]
+        public string Password { get; set; }
+
+        [Required]
         [EmailAddress]
         [StringLength(100)]
         public string User_Email { get; set;}
