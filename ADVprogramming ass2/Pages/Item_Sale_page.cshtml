@@ -2,9 +2,12 @@
 @model ADVprogramming_ass2.Pages.Item_Sale_pageModel
 @{
 }
-<p><strong>Test of data transfer</strong> @Model.Items.Item_Name</p>
-<input type="hidden" asp-for="Items.Item_Id" />
+<p><strong>Test of data transfer</strong></p>
+<input type="hidden" asp-for="Product.Item_Name" />
 <div class="form-group">
-    
+
+    <form method="post" asp-page-handler="AddToBasket" asp-route-productId="Product.Item_Id">
+        <button type="submit" class="btn btn-primary">Add To Basket</button>
+    </form>
 </div>
 <button type="submit" class="btn btn-primary">Buy Item</button>

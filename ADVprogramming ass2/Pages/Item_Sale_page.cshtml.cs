@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Net.Http.Headers;
+using Microsoft.EntityFrameworkCore;
 
 namespace ADVprogramming_ass2.Pages
 {
@@ -17,36 +19,52 @@ namespace ADVprogramming_ass2.Pages
             _dbConnection = context;
         }
 
-        public ItemsOnSaleModel Items { get; set; }
-        public int AMTSold;
+        public ItemsOnSaleModel AddItem { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(Guid id)
+        [BindProperty]
+        public ItemsOnSaleModel Product { get; set; }
+
+        public List<ItemsOnSaleModel> Items { get; set; } = new List<ItemsOnSaleModel>();
+
+        public async Task OnGetAsync()
         {
-            Items = await _dbConnection.Item.FindAsync(id);
-            //hjmyshghsshggh
-            if (Items == null)
-            {
-                return NotFound();//hjmyshghsshggh
-            }
-
-            //hjmyshghsshggh
-            return Page();
+            Items = await _dbConnection.Item.ToListAsync();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAddProductAsync()
         {
-            var itemSold = await _dbConnection.Item.FindAsync(Items.Item_Id);
+            //hjmyshghsshggh
+            if (!ModelState.IsValid)
+            {
+                Items = await _dbConnection.Item.ToListAsync();
+                return Page();//hjmyshghsshggh
+            }
 
-            if (itemSold == null)
+            _dbConnection.Add(AddItem);
+            await _dbConnection.SaveChangesAsync();
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostAddToBasketAsync(Guid ItemId)
+        {
+            var userID = Guid.Parse(HttpContext.Session.GetString("UserId"));
+            var emptcheck = userID.ToString();
+            if (string.IsNullOrEmpty(emptcheck))//string.IsNullOrEmpty(userID))
+            {
+                return RedirectToPage("/Login");
+            }
+
+            var item2str = ItemId.ToString();
+            var productToAdd = await _dbConnection.Item.FindAsync(ItemId);
+            if (productToAdd == null)
             {
                 return NotFound();
             }
 
-            itemSold.QuantSold = (itemSold.QuantSold + AMTSold);
-
+            var basketItem = new Basket { Item_Id = productToAdd.Item_Id, User_Id = userID };
+            _dbConnection.Baskets.Add(basketItem);
             await _dbConnection.SaveChangesAsync();
-
-            return RedirectToPage("Index");
+            return RedirectToPage();
         }
 
     }
