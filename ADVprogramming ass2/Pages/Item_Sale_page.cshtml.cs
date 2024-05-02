@@ -11,13 +11,14 @@ namespace ADVprogramming_ass2.Pages
     {
         private readonly AppDBContext _dbConnection;
 
-        public ItemsOnSaleModel Items { get; set; }
-        public int AMTSold;
 
         public Item_Sale_pageModel(AppDBContext context)
         {
             _dbConnection = context;
         }
+
+        public ItemsOnSaleModel Items { get; set; }
+        public int AMTSold;
 
         public async Task<IActionResult> OnGetAsync(Guid id)
         {
