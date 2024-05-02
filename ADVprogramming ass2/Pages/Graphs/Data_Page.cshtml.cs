@@ -22,7 +22,7 @@ namespace ADVprogramming_ass2.Pages.Graphs
         public void OnGet()
         {
             var items = _dbConnection.Item.ToList();
-            TasksJson = JsonSerializer.Serialize(items.Select(t => new { Quantity_Sold = t.QuantSold.ToString(), t.Quantity}));
+            TasksJson = JsonSerializer.Serialize(items.Select(t => new { Quantity_Sold = t.Item_Name, t.QuantSold}));
         }
     }
 }

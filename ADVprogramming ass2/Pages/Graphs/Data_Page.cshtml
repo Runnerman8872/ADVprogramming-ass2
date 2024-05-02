@@ -10,19 +10,19 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx = document.getElementById('tasksGraph').getContext('2d'):
+        var ctx = document.getElementById('tasksGraph').getContext('2d');
         var tasksData = @Html.Raw(Model.TasksJson);
         var tasksGraph = new Chart(ctx, {
-        type: 'Bar',
-    data: {
-                labels: tasksData.map(t => new Date(t.Quantity_Sold).toLocaleDateString()),
+        type: 'bar',
+        data: {
+                labels: tasksData.map(t => t.Quantity_Sold),
                 datasets: [{
                     label: 'Amount Sold',
-                    data: tasksData.map(t => t.Quantity),
+                    data: tasksData.map(t => t.QuantSold),
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
-                }]
+                } ]
         },
         options: {
             scales: {
