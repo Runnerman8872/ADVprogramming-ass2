@@ -46,8 +46,8 @@ namespace ADVprogramming_ass2.Pages
                 Message = "InValid login attempt.";
                 return Page();
             }
-
-            HttpContext.Session.SetString("User_Name", user.User_Name);
+            var UIDtoString = user.User_Id.ToString();
+            HttpContext.Session.SetString("UserId", UIDtoString);
             Message = "Login Successful.";
             return RedirectToPage("/Index");
 

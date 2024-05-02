@@ -2,3 +2,30 @@
 @model ADVprogramming_ass2.Pages.BasketsModel
 @{
 }
+@if (Model.BasketItems != null && Model.BasketItems.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.BasketItems){
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Description</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else{
+    <p>Your basket ir empty.</p>
+}
+<form method="post" asp-page-handler="Checkout">
+    <button type="submit" class="btn btn-primary">Checkout</button>
+</form>

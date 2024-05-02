@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
             <p class="card-text">@Item.Item_description</p>
-            <form methof="post" asp-page-handler="AddToBasket" asp-route-productID="@Item.Item_Id">
+            <form method="post" asp-page-handler="AddToBasket" asp-route-Item_Id="@Item.Item_Id">
                 <button type="submit" class="btn btn-primary">Add to Basket</button>
             </form>
         </div>

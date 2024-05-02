@@ -22,7 +22,7 @@ namespace ADVprogramming_ass2.Pages
             //
         }
 
-        private readonly ILogger<Shop_pageModel> _logger;
+
 
         public List<ItemsOnSaleModel> Items { get; set; } = new List<ItemsOnSaleModel>();
 
@@ -47,24 +47,28 @@ namespace ADVprogramming_ass2.Pages
             return RedirectToPage();
         }
 
-        public async Task<IActionResult> OnPostAddToBasketAsync(Guid ItemId)
+        public async Task<IActionResult> OnPostAddToBasketAsync(Guid Item_Id)
         {
             //var userID = Guid.Parse(HttpContext.Session.GetString("UserId"));
             //var emptcheck = userID.ToString();
 
-            var userId = HttpContext.Session.GetString("User_Name");
-            var IdConvert = Guid.Parse(ItemId.ToString());
+            var userId = HttpContext.Session.GetString("UserId");
+
             if (string.IsNullOrEmpty(userId))
             {
                 return RedirectToPage("/Login");
             }
+            //^^Good :)
+            //VVBad :(
 
-            var item2str= ItemId.ToString();
-            var productToAdd = await _dbConnection.Item.FindAsync(ItemId);
+
+            var productToAdd = await _dbConnection.Item.FindAsync(Item_Id);
             if (productToAdd == null)
             {
                 return NotFound();
             }
+            //^^
+            var IdConvert = Guid.Parse(userId.ToString());
 
             var basketItem = new Basket { Item_Id = productToAdd.Item_Id, User_Id = IdConvert };
             _dbConnection.Baskets.Add(basketItem);
